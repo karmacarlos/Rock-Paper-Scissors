@@ -15,11 +15,6 @@ html {
     background-color: #29282D;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-}
-
 header {
     color: #DDDEDF;
     font-size: 5vh;
@@ -94,8 +89,8 @@ main {
 }
 
 .fighter {
-    height: 6vh;
-    width: 4vw;
+    height: 10vh;
+    width: 8vw;
 }
 
 button {
