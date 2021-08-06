@@ -9,3 +9,31 @@ Black Font #494849
 Cool Orange #EC9F1A
 Other Blue #00C3E1
 Foggy Grey #767D81 */
+
+html {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #767D81;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.game__central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
