@@ -27,6 +27,10 @@ main {
     width: 100vw;
 }
 
+h2 {
+    font-size: 4vh;
+}
+
 .game {
     display: flex;
     flex-direction: row;
@@ -53,13 +57,16 @@ main {
 .fighters {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 40vw;
 }
 
 .central-game__difficulty {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    width: 40vw;
 }
 
 .action-buttons {
@@ -90,17 +97,19 @@ main {
 
 .fighter {
     height: 10vh;
-    width: 8vw;
+    width: auto;
+    cursor: pointer;
 }
 
 button {
     background-color: #EC9F1A;
     height: 5vh;
-    width: 10vw;
+    width: 12vw;
     border-radius: 1vh;
     color: #494849;
     cursor: pointer;
     color: #494849;
+    font-size: 2vh;
 }
 
 .player-image {
