@@ -1,6 +1,6 @@
 class Player {
     constructor(name) {
-        this.player = 'name';
+        this.player = name;
         this.wins = 0;
     };
 
@@ -12,7 +12,7 @@ class Player {
 
     };
 
-    takeTurn() {
-
+    takeTurn(fighters) {
+        var computerChoice = fighters[Math.floor(Math.random() * fighters.length)];
     };
 };
