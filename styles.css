@@ -8,4 +8,106 @@ Cool Black #29282D
 Black Font #494849
 Cool Orange #EC9F1A
 Other Blue #00C3E1
-Foggy grey #767D81 */
+Foggy Grey #767D81 */
+
+html {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #29282D;
+}
+
+header {
+    color: #DDDEDF;
+    font-size: 5vh;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #29282D;
+    border-radius: 2vh;
+    height: 90vh;
+    width: 90vw;
+}
+
+.game__central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50vw;
+    height: 70vh;
+    background-color: #DDDEDF;
+    border-radius: 2vh;
+    box-shadow: 1vh .5vw #767D81;
+}
+
+.fighters {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.central-game__difficulty {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.game__computer, .game__human {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FE5146;
+    border-radius: 2vh;
+    height: 30vh;
+    width: 15vw;
+    box-shadow: 1vh .5vw #E40611;
+}
+
+.game__human {
+    background-color: #01ADCC;
+    box-shadow: 1vh .5vw #00C3E1
+}
+
+.reset-button {
+    display: flex;
+    justify-content: center;
+}
+
+.fighter {
+    height: 10vh;
+    width: 8vw;
+}
+
+button {
+    background-color: #EC9F1A;
+    height: 5vh;
+    width: 10vw;
+    border-radius: 1vh;
+    color: #494849;
+    cursor: pointer;
+    color: #494849;
+}
+
+.player-image {
+    height: 10vh;
+    width: auto;
+}
+
+.hidden {
+    display: none;
+}

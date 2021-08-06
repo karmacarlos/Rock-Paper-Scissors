@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <title>
+      Rock - Paper - Scisor
+    </title>
+  </head>
+  <body>
+  <main>
+    <header class="header">Rock - Paper - Scissors</header>
+    <section class="game">
+        <section class="game__human">
+            <img class="player-image" src="./assets/icon-human.png">
+            <h3 class="player-name">Human</h3>
+            <p class="wins" id="humanWins">Wins:0</p>
+        </section>
+        <section class="game__central">
+        <div class="prompt">
+            <h2 id="promptMessage">Choose your fighter</h2>
+        </div>
+        <div class="fighters hidden" id="fightersClassic">
+            <img class="fighter" id="scissors" src="./assets/black-and-white-scissors.png">
+            <img class="fighter" id="rock" src="./assets/rock-hand.png">
+            <img class="fighter" id="paper" src="./assets/happy-paper.png">
+        </div>
+        <div class="fighters hidden" id="fightersSpicy">
+            <img class="fighter" id="alien" src="./assets/ufo.png">
+            <img class="fighter" id="dog" src="./assets/dog.eps">
+        </div>
+        <div class="central-game__difficulty" id="difficultyButtons">
+            <button class="buttons" id="classicGame">classic</button>
+            <button class="buttons" id="spicyGame">Spicy</button>
+        </div>
+        <div class="action-buttons">
+            <button class="central-game__start hidden">Start</button>
+            <button class="central-game__play hidden">Fight!</button>
+            <p class="veredict hidden" id="veredict">Veredic</p>
+        </div>
+    </section>
+    <section class="game__computer">
+        <img class="player-image" src="./assets/icon-computer.png">
+        <h3 class="player-name">Computer</h3>
+        <p class="wins" id="computerWins">Wins:0</p>
+    </section>
+  </section>
+  <section class="reset-button">
+      <button class="change-game" id="changeGame">Change Game</button>
+  </section>
+  </main>
+  </body>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="game.js"></script>
+  <script type="text/javascript" src="player.js"></script>
+  <script type="text/javascript" src="data.js"></script>
+</html>
