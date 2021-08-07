@@ -37,12 +37,13 @@ var game = new Game(humanPlayer, computerPlayer);
 
 classicButton.addEventListener('click', playClassicGame);
 centralConsole.addEventListener('click', chooseFighter);
+changeGameButton.addEventListener('click', changeDifficulty);
 
 // Event Handlers
 
 function playClassicGame() {
-    hide(spicyButton);
-    modifyElementText(choosePrompt, 'Choose your fighter:')
+    // hide(spicyButton);
+    modifyElementText(choosePrompt, 'Choose your Fighter');
     show(classicFighters);
     hide(difficultyButtonsSection);
     show(changeGameSection);
@@ -59,6 +60,15 @@ function chooseFighter(event) {
         displayResult();
         game.countdown();
     };
+};
+
+function changeDifficulty(event) {
+    event.preventDefault();
+    show(difficultyButtonsSection);
+    modifyElementText(choosePrompt, 'Choose Difficulty Level');
+    hide(classicFighters);
+    hide(result);
+    hide(changeGameSection);
 };
 
 // Helper Functions
