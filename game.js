@@ -72,8 +72,8 @@ class Game {
         };
 
         totalSec--
-        }; 
-    };
+    }; 
+    
 };
 
 
