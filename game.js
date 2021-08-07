@@ -1,45 +1,68 @@
-var human = new Player('Human');
-var computer = new Player('Computer');
+class Game {
+    constructor(humanInstance, computerInstance) {
+        this.players = [humanInstance, computerInstance];
+        this.selectedGame = null;
+        this.gameBoard = { 
+            human: humanInstance.wins,
+            computer: computerInstance.wins,
+        };
+        this.fighters = ['scissors', 'paper', 'rock'];
+    };
 
-var classicFighters = ['scissors', 'paper', 'rock'];
+    selectedGame(difficulty) {
+        this.selectedGame = difficulty;
+    };
 
-var spicyFighters = ['scissors', 'paper', 'rock', 'alien', 'lizard'];
+    increaseDifficulty() {
+        this.fighters.push('alien');
+        this.fighters.push('lizard');
+    };
 
-function classicGame(classicFighters, userInput) {
+    resetDifficulty() {
+        this.fighters.splice(3, 2);
+    };
+
+    game(userInput, result) {
     
-    var computerFighter = computer.takeTurn(classicFighters)
-    var userFighter = userInput;
-    var result = null;
-
-    if (computerFighter === userFighter) {
-        result = '← It\'s a draw →'
-    };
-
-    if (computerFighter === 'scissors' && userFighter === 'rock') {
-        result = '← You won this round!'
-        human.wins ++;
-    } else if (computerFighter === 'scissors' && userFighter === 'paper') {
-        result = 'The computer won this round →';
-        computer.wins ++;
-    };
+        var computerFighter = this.players[1].takeTurn(this.fighters);
+        
+        if (computerFighter === userInput) {
+            result = '← It\'s a draw →'
+            return result;
+        };
     
-    if(computerFighter === 'rock' && userFighter === 'paper') {
-        result = '← You won this round!'
-        human.wins ++;
-    } else if (computerFighter === 'rock' && userFighter === 'scissors') {
-        result = 'The computer won this round →';
-        computer.wins ++;
+        if (computerFighter === 'scissors' && (userInput === 'rock' || userInput === 'alien')) {
+            result = '← You won this round!'
+            human.wins ++;
+            return result;
+        } else if (computerFighter === 'scissors' && (userInput === 'paper' || userInput === 'lizard')) {
+            result = 'The computer won this round →';
+            computer.wins ++;
+            return result;
+        };
+        
+        if(computerFighter === 'rock' && (userInput === 'paper' || userInput === 'alien')) {
+            result = '← You won this round!'
+            human.wins ++;
+            return result;
+        } else if (computerFighter === 'rock' && (userInput === 'scissors' || userInput === 'lizard')) {
+            result = 'The computer won this round →';
+            computer.wins ++;
+            return result;
+        };
+    
+        if (computerFighter === 'paper' && (userInput === 'scissors' || userInput === 'lizard')) {
+            result = '← You won this round!'
+            human.wins ++;
+            return result;
+        } else if (computerFighter === 'paper' && (userInput === 'rock' || userInput === 'alien')) {
+            result = 'The computer won this round →';
+            computer.wins ++;
+            return result;
+        };
     };
+};
 
-    if (computerFighter === 'paper' && userFighter === 'scissors') {
-        result = '← You won this round!'
-        human.wins ++;
-    } else if (computerFighter === 'paper' && userFighter === 'rock') {
-        result = 'The computer won this round →';
-        computer.wins ++;
-    };
-}
-// A way to keep track of the data for the game board
-// A way to keep track of the selected game type
-// A way to check the Game’s board data for win conditions
-// A way to reset the Game’s board to begin a new game
+
+
+
