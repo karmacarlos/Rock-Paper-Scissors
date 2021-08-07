@@ -32,7 +32,7 @@ class Game {
         };
     
         if (computerFighter === 'scissors' && (userInput === 'rock' || userInput === 'alien')) {
-            result = '← You won this round!'
+            result = '← You won this round!';
             human.wins ++;
             return result;
         } else if (computerFighter === 'scissors' && (userInput === 'paper' || userInput === 'lizard')) {
@@ -42,7 +42,7 @@ class Game {
         };
         
         if (computerFighter === 'rock' && (userInput === 'paper' || userInput === 'alien')) {
-            result = '← You won this round!'
+            result = '← You won this round!';
             human.wins ++;
             return result;
         } else if (computerFighter === 'rock' && (userInput === 'scissors' || userInput === 'lizard')) {
@@ -52,10 +52,30 @@ class Game {
         };
     
         if (computerFighter === 'paper' && (userInput === 'scissors' || userInput === 'lizard')) {
-            result = '← You won this round!'
+            result = '← You won this round!';
             human.wins ++;
             return result;
         } else if (computerFighter === 'paper' && (userInput === 'rock' || userInput === 'alien')) {
+            result = 'The computer won this round →';
+            computer.wins ++;
+            return result;
+        };
+
+        if (computerFighter === 'alien' && (userInput === 'paper' || userInput === 'lizard')) {
+            result = '← You won this round!';
+            human.wins ++;
+            return result;
+        } else if (computerFighter === 'alien' && (userInput === 'scissors' || userInput === 'rock')) {
+            result = 'The computer won this round →';
+            computer.wins ++;
+            return result;
+        };
+
+        if (computerFighter === 'lizard' && (userInput === 'rock' || userInput === 'scissors')) {
+            result = '← You won this round!';
+            human.wins ++;
+            return result;
+        } else if (computerFighter === 'lizard' && (userInput === 'paper' || userInput === 'alien')) {
             result = 'The computer won this round →';
             computer.wins ++;
             return result;

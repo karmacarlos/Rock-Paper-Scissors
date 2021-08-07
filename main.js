@@ -1,6 +1,5 @@
 // DOM Elements
 
-
 var humanWins = document.getElementById('humanWins');
 var choosePrompt = document.getElementById('promptMessage');
 var classicFighters = document.getElementById('fightersClassic');
@@ -47,10 +46,8 @@ function chooseFighter(event) {
     var userChoices = document.querySelectorAll('input');
     userInput = event.target.value;
     computerPlayer.takeTurn();
-
+    game.play()
 };
-
-
 
 // Helper Functions
 
