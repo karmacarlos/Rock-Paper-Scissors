@@ -86,7 +86,7 @@ class Game {
 
     countdown() {
         var intervalSet = setInterval(timer, 1000);      
-        var totalSec = 2;
+        var totalSec = 1;
 
         function timer() {
             if (totalSec === 0) {
