@@ -61,6 +61,19 @@ class Game {
             return result;
         };
     };
+
+    timer() {
+        var intervalSet = setInterval(timer, 1000);      
+        var totalSec = 3;
+        
+        if (totalSec === 0) {
+        clearInterval(intervalSet);
+        return;
+        };
+
+        totalSec--
+        }; 
+    };
 };
 
 
