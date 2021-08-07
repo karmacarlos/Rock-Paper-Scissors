@@ -19,6 +19,13 @@ header {
     color: #DDDEDF;
     font-size: 5vh;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -46,7 +53,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 50vw;
     height: 70vh;
     background-color: #DDDEDF;
@@ -96,9 +103,14 @@ h2 {
 }
 
 .fighter {
-    height: 10vh;
+    height: 12vh;
     width: auto;
     cursor: pointer;
+    border-radius: 1vh;
+}
+
+.selected {
+    background-color: #01ADCC;
 }
 
 button {
@@ -115,6 +127,10 @@ button {
 .player-image {
     height: 10vh;
     width: auto;
+}
+
+.action-buttons {
+    font-size: 4vh;
 }
 
 .hidden {

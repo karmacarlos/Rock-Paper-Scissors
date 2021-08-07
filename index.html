@@ -7,39 +7,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
     <title>
-      Rock - Paper - Scisor
+      Rock - Paper - Scissors
     </title>
   </head>
   <body>
-  <main>
-    <header class="header">Rock - Paper - Scissors</header>
+    <header>Rock - Paper - Scissors</header>
+    <main>
     <section class="game">
         <section class="game__human">
             <img class="player-image" src="./assets/icon-human.png">
             <h3 class="player-name">Human</h3>
             <p class="wins" id="humanWins">Wins:0</p>
         </section>
-        <section class="game__central">
+        <section class="game__central" id="centralConsole">
         <div class="prompt">
             <h2 id="promptMessage">Choose Difficulty level</h2>
         </div>
         <div class="fighters hidden" id="fightersClassic">
-            <input class="fighter" id="scissors" type="image" src="./assets/black-and-white-scissors.png" value="1">
-            <input class="fighter" id="rock" type="image" src="./assets/black-and-white-rocks.png" value="2">
-            <input class="fighter" id="paper" type="image" src="./assets/black-and-white-paper.png" value="3">
+            <input class="fighter" id="scissors" type="image" src="./assets/black-and-white-scissors.png" value="scissors">
+            <input class="fighter" id="rock" type="image" src="./assets/black-and-white-rocks.png" value="rock">
+            <input class="fighter" id="paper" type="image" src="./assets/black-and-white-paper.png" value="paper">
         </div>
         <div class="fighters hidden" id="fightersSpicy">
-            <input class="fighter" id="alien" type="image" src="./assets/black-and-white-alien.png" value="4">
-            <input class="fighter" id="lizzard" type="image" src="./assets/flat-lizard.png" value="5">
+            <input class="fighter" id="alien" type="image" src="./assets/black-and-white-alien.png" value="alien">
+            <input class="fighter" id="lizzard" type="image" src="./assets/flat-lizard.png" value="lizard">
         </div>
         <div class="central-game__difficulty" id="difficultyButtons">
-            <button class="buttons" id="classicGame">Classic</button>
-            <button class="buttons" id="spicyGame">Spicy</button>
+            <button class="buttons" id="classicGame" value="classic">Classic</button>
+            <button class="buttons" id="spicyGame" value="spicy">Spicy</button>
         </div>
-        <div class="action-buttons">
-            <button class="central-game__start hidden">Start</button>
-            <button class="central-game__play hidden">Fight!</button>
-            <p class="veredict hidden" id="veredict">Veredic</p>
+        <div class="action-buttons" id="resultSection">
+            <p class="veredict hidden" id="result">Result</p>
         </div>
     </section>
     <section class="game__computer">
@@ -47,14 +45,13 @@
         <h3 class="player-name">Computer</h3>
         <p class="wins" id="computerWins">Wins:0</p>
     </section>
-  </section>
-  <section class="reset-button">
-      <button class="change-game" id="changeGame">Change Game</button>
-  </section>
-  </main>
+    </section>
+    <section class="reset-button hidden" id="changeGameSection">
+        <button class="change-game" id="changeGame">Change Game</button>
+    </section>
+    </main>
   </body>
-  <script type="text/javascript" src="main.js"></script>
-  <script type="text/javascript" src="game.js"></script>
   <script type="text/javascript" src="player.js"></script>
-  <script type="text/javascript" src="data.js"></script>
+  <script type="text/javascript" src="game.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </html>
