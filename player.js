@@ -5,14 +5,15 @@ class Player {
     };
 
     saveWinsToStorage() {
-
+        localStorage.setItem(`${this.player}`, this.wins);
     };
 
     retrieveWinsFromStorage() {
-
+        return localStorage.getItem(this.player);
     };
 
     takeTurn(fighters) {
         var computerChoice = fighters[Math.floor(Math.random() * fighters.length)];
+        return computerChoice;
     };
 };

@@ -19,7 +19,7 @@
             <h3 class="player-name">Human</h3>
             <p class="wins" id="humanWins">Wins:0</p>
         </section>
-        <section class="game__central">
+        <section class="game__central" id="centralConsole">
         <div class="prompt">
             <h2 id="promptMessage">Choose Difficulty level</h2>
         </div>
@@ -36,7 +36,7 @@
             <button class="buttons" id="classicGame" value="classic">Classic</button>
             <button class="buttons" id="spicyGame" value="spicy">Spicy</button>
         </div>
-        <div class="action-buttons hidden">
+        <div class="action-buttons">
             <button class="central-game__start hidden" id="startButton">Start</button>
             <button class="central-game__play hidden" id="fightButton">Fight!</button>
             <p class="veredict hidden" id="result">Result</p>
@@ -51,9 +51,9 @@
     <section class="reset-button hidden" id="changeGameSection">
         <button class="change-game" id="changeGame">Change Game</button>
     </section>
-  </main>
+    </main>
   </body>
-  <script type="text/javascript" src="main.js"></script>
-  <script type="text/javascript" src="game.js"></script>
   <script type="text/javascript" src="player.js"></script>
+  <script type="text/javascript" src="game.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </html>

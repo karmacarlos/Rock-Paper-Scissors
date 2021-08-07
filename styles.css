@@ -103,9 +103,14 @@ h2 {
 }
 
 .fighter {
-    height: 10vh;
+    height: 12vh;
     width: auto;
     cursor: pointer;
+    border-radius: 1vh;
+}
+
+.selected {
+    background-color: #01ADCC;
 }
 
 button {

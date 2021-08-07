@@ -22,7 +22,7 @@ class Game {
         this.fighters.splice(3, 2);
     };
 
-    game(userInput, result) {
+    play(userInput, result) {
     
         var computerFighter = this.players[1].takeTurn(this.fighters);
         
@@ -41,7 +41,7 @@ class Game {
             return result;
         };
         
-        if(computerFighter === 'rock' && (userInput === 'paper' || userInput === 'alien')) {
+        if (computerFighter === 'rock' && (userInput === 'paper' || userInput === 'alien')) {
             result = '← You won this round!'
             human.wins ++;
             return result;
