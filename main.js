@@ -13,11 +13,18 @@ var result = document.getElementById('result');
 var changeGameSection = document.getElementById('changeGameSection');
 var changeGameButton = document.getElementById('changeGame');
 var centralConsole = document.getElementById('centralConsole');
+var scissors = document.getElementById('scissors');
+var paper = document.getElementById('paper');
+var rock = document.getElementById('rock');
+var inputs = document.querySelectorAll('input');
 
-// Useful Variables
+// Variables
 
-var result = null;
+var resultMessage = null;
 var userInput = null;
+var computerChoice = null;
+var userChoices = null;
+var computerDisplayChoice = null;
 
 // Object Instances 
 
@@ -39,14 +46,19 @@ function playClassicGame() {
     show(classicFighters);
     hide(difficultyButtonsSection);
     show(changeGameSection);
-    game.selectedGame('classic');
+    game.selectGame('classic');
 };
 
 function chooseFighter(event) {
-    var userChoices = document.querySelectorAll('input');
-    userInput = event.target.value;
-    computerPlayer.takeTurn();
-    game.play()
+    event.preventDefault();
+    if (event.target.id === 'scissors' || event.target.id === 'paper' || event.target.id === 'rock') {
+        userInput = event.target.id;
+        computerChoice = computerPlayer.takeTurn(game.fighters);
+        game.play(userInput, computerChoice);
+        getComputerElement();
+        displayResult();
+        game.countdown();
+    };
 };
 
 // Helper Functions
@@ -65,4 +77,41 @@ function modifyElementText(element, text) {
 
 function markSelected(element, className) {
     element.classList.add(className);
+};
+
+function changeImg(element, source) {
+    element.src = source;
+};
+
+function getComputerElement() {
+    for(var i =0; i < inputs.length; i++) {
+        if(inputs[i].id === computerChoice) {
+         computerDisplayChoice = inputs[i];
+        };
+     };
+};
+
+function displayResult() {
+    classicFighters.innerHTML = `<input class="fighter" id="${userInput}" type="image" src=${event.target.src} value=${userInput}>
+         <input class="fighter" id="${computerChoice}" type="image" src=${computerDisplayChoice.src} value=${computerChoice}>`;
+         show(result);
+        result.innerText = resultMessage;
+};
+
+function offInputs() {
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = true;
+    };
+};
+
+function restartFighters() {
+
+    hide(result);
+
+    classicFighters.innerHTML = `<div class="fighters" id="fightersClassic">
+    <input class="fighter" id="scissors" type="image" src="./assets/black-and-white-scissors.png" value="scissors">
+    <input class="fighter" id="rock" type="image" src="./assets/black-and-white-rocks.png" value="rock">
+    <input class="fighter" id="paper" type="image" src="./assets/black-and-white-paper.png" value="paper">
+    </div>`
+
 };

@@ -13,7 +13,7 @@ class Player {
     };
 
     takeTurn(fighters) {
-        var computerChoice = fighters[Math.floor(Math.random() * fighters.length)];
+        computerChoice = fighters[Math.floor(Math.random() * fighters.length)];
         return computerChoice;
     };
 };

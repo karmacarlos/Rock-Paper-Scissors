@@ -129,6 +129,10 @@ button {
     width: auto;
 }
 
+.action-buttons {
+    font-size: 4vh;
+}
+
 .hidden {
     display: none;
 }

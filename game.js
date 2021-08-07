@@ -9,89 +9,93 @@ class Game {
         this.fighters = ['scissors', 'paper', 'rock'];
     };
 
-    selectedGame(difficulty) {
+    selectGame(difficulty) {
         this.selectedGame = difficulty;
     };
 
     increaseDifficulty() {
-        this.fighters.push('alien');
-        this.fighters.push('lizard');
+        if (this.fighters.length === 3) {
+            this.fighters.push('alien');
+            this.fighters.push('lizard');
+        };
     };
 
     resetDifficulty() {
-        this.fighters.splice(3, 2);
-    };
-
-    play(userInput, result) {
-    
-        var computerFighter = this.players[1].takeTurn(this.fighters);
-        
-        if (computerFighter === userInput) {
-            result = '← It\'s a draw →'
-            return result;
-        };
-    
-        if (computerFighter === 'scissors' && (userInput === 'rock' || userInput === 'alien')) {
-            result = '← You won this round!';
-            human.wins ++;
-            return result;
-        } else if (computerFighter === 'scissors' && (userInput === 'paper' || userInput === 'lizard')) {
-            result = 'The computer won this round →';
-            computer.wins ++;
-            return result;
-        };
-        
-        if (computerFighter === 'rock' && (userInput === 'paper' || userInput === 'alien')) {
-            result = '← You won this round!';
-            human.wins ++;
-            return result;
-        } else if (computerFighter === 'rock' && (userInput === 'scissors' || userInput === 'lizard')) {
-            result = 'The computer won this round →';
-            computer.wins ++;
-            return result;
-        };
-    
-        if (computerFighter === 'paper' && (userInput === 'scissors' || userInput === 'lizard')) {
-            result = '← You won this round!';
-            human.wins ++;
-            return result;
-        } else if (computerFighter === 'paper' && (userInput === 'rock' || userInput === 'alien')) {
-            result = 'The computer won this round →';
-            computer.wins ++;
-            return result;
-        };
-
-        if (computerFighter === 'alien' && (userInput === 'paper' || userInput === 'lizard')) {
-            result = '← You won this round!';
-            human.wins ++;
-            return result;
-        } else if (computerFighter === 'alien' && (userInput === 'scissors' || userInput === 'rock')) {
-            result = 'The computer won this round →';
-            computer.wins ++;
-            return result;
-        };
-
-        if (computerFighter === 'lizard' && (userInput === 'rock' || userInput === 'scissors')) {
-            result = '← You won this round!';
-            human.wins ++;
-            return result;
-        } else if (computerFighter === 'lizard' && (userInput === 'paper' || userInput === 'alien')) {
-            result = 'The computer won this round →';
-            computer.wins ++;
-            return result;
+        if (this.fighters.length === 5) {
+            this.fighters.splice(3, 2);
         };
     };
 
-    timer() {
+    play(userInput, computerChoice) {
+        
+        if (computerChoice === userInput) {
+            resultMessage = '← It\'s a draw →'
+            return resultMessage;
+        };
+    
+        if (computerChoice === 'scissors' && (userInput === 'rock' || userInput === 'alien')) {
+            resultMessage = '← You won this round!';
+            this.players[0].wins ++;
+            return resultMessage;
+        } else if (computerChoice === 'scissors' && (userInput === 'paper' || userInput === 'lizard')) {
+            resultMessage = 'The computer won this round →';
+            this.players[1].wins ++;
+            return resultMessage;
+        };
+        
+        if (computerChoice === 'rock' && (userInput === 'paper' || userInput === 'alien')) {
+            resultMessage = '← You won this round!';
+            this.players[0].wins ++;
+            return resultMessage;
+        } else if (computerChoice === 'rock' && (userInput === 'scissors' || userInput === 'lizard')) {
+            resultMessage = 'The computer won this round →';
+            this.players[1].wins ++;
+            return resultMessage;
+        };
+    
+        if (computerChoice === 'paper' && (userInput === 'scissors' || userInput === 'lizard')) {
+            resultMessage = '← You won this round!';
+            this.players[0].wins ++;
+            return resultMessage;
+        } else if (computerChoice === 'paper' && (userInput === 'rock' || userInput === 'alien')) {
+            resultMessage = 'The computer won this round →';
+            this.players[1].wins ++;
+            return resultMessage;
+        };
+
+        if (computerChoice === 'alien' && (userInput === 'paper' || userInput === 'lizard')) {
+            resultMessage = '← You won this round!';
+            this.players[0].wins ++;
+            return resultMessage;
+        } else if (computerChoice === 'alien' && (userInput === 'scissors' || userInput === 'rock')) {
+            resultMessage = 'The computer won this round →';
+            this.players[1].wins ++;
+            return resultMessage;
+        };
+
+        if (computerChoice === 'lizard' && (userInput === 'rock' || userInput === 'scissors')) {
+            resultMessage = '← You won this round!';
+            this.players[0].wins ++;
+            return resultMessage;
+        } else if (computerChoice === 'lizard' && (userInput === 'paper' || userInput === 'alien')) {
+            resultMessage = 'The computer won this round →';
+            this.players[1].wins ++;
+            return resultMessage;
+        };
+    };
+
+    countdown() {
         var intervalSet = setInterval(timer, 1000);      
-        var totalSec = 3;
-        
-        if (totalSec === 0) {
-        clearInterval(intervalSet);
-        return;
-        };
+        var totalSec = 2;
 
-        totalSec--
+        function timer() {
+            if (totalSec === 0) {
+            clearInterval(intervalSet);
+            return restartFighters();
+            };
+            
+            totalSec--;
+        };
     }; 
     
 };
