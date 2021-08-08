@@ -62,8 +62,6 @@ function chooseFighter(event) {
         getComputerElement();
         displayResult();
         game.countdown();
-        humanPlayer.saveWinsToStorage();
-        computerPlayer.saveWinsToStorage();
         displayWins();
     };
 };
@@ -116,7 +114,7 @@ function getComputerElement() {
 
 function displayResult() {
         hide(spicyFighters);
-    classicFighters.innerHTML = `<input class="fighter" id="${userInput}" type="image" src=${event.target.src} value=${userInput}>
+        classicFighters.innerHTML = `<input class="fighter" id="${userInput}" type="image" src=${event.target.src} value=${userInput}>
          <input class="fighter" id="${computerChoice}" type="image" src=${computerDisplayChoice.src} value=${computerChoice}>`;
          show(result);
         result.innerText = resultMessage;
@@ -142,6 +140,10 @@ function restartFighters() {
 };
 
 function displayWins() {
-    humanWins.innerText = `${humanPlayer.retrieveWinsFromStorage()} Wins`;
-    computerWins.innerText = `${computerPlayer.retrieveWinsFromStorage()} Wins`;
+    if (game.retrieveHumanWins() > 0) {
+        humanWins.innerText = `${game.retrieveHumanWins()} Wins`;
+    };
+    if (game.retrieveComputerWins()) {
+        computerWins.innerText = `${game.retrieveComputerWins()} Wins`;
+    };
 };
