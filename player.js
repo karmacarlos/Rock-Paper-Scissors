@@ -5,11 +5,11 @@ class Player {
     };
 
     saveWinsToStorage() {
-        localStorage.setItem(`${this.player}`, this.wins);
+        localStorage.setItem(`${this.player}Wins`, this.wins);
     };
 
     retrieveWinsFromStorage() {
-        return localStorage.getItem(this.player);
+        return localStorage.getItem(`${this.player}Wins`);
     };
 
     takeTurn(fighters) {
