@@ -38,11 +38,11 @@ var game = new Game(humanPlayer, computerPlayer);
 classicButton.addEventListener('click', playClassicGame);
 centralConsole.addEventListener('click', chooseFighter);
 changeGameButton.addEventListener('click', changeDifficulty);
+spicyButton.addEventListener('click', playSpicyGame);
 
 // Event Handlers
 
 function playClassicGame() {
-    // hide(spicyButton);
     modifyElementText(choosePrompt, 'Choose your Fighter');
     show(classicFighters);
     hide(difficultyButtonsSection);
@@ -52,7 +52,7 @@ function playClassicGame() {
 
 function chooseFighter(event) {
     event.preventDefault();
-    if (event.target.id === 'scissors' || event.target.id === 'paper' || event.target.id === 'rock') {
+    if (event.target.id === 'scissors' || event.target.id === 'paper' || event.target.id === 'rock' || event.target.id === 'alien' || event.target.id === 'lizard') {
         userInput = event.target.id;
         computerChoice = computerPlayer.takeTurn(game.fighters);
         game.play(userInput, computerChoice);
@@ -69,8 +69,19 @@ function changeDifficulty(event) {
     hide(classicFighters);
     hide(result);
     hide(changeGameSection);
+    hide(spicyFighters);
+    game.resetDifficulty();
 };
 
+function playSpicyGame() {
+    modifyElementText(choosePrompt, 'Choose your Fighter');
+    show(classicFighters);
+    show(spicyFighters);
+    hide(difficultyButtonsSection);
+    show(changeGameSection);
+    game.selectGame('spicy');
+    game.increaseDifficulty();
+}
 // Helper Functions
 
 function hide(element) {
@@ -102,6 +113,7 @@ function getComputerElement() {
 };
 
 function displayResult() {
+        hide(spicyFighters);
     classicFighters.innerHTML = `<input class="fighter" id="${userInput}" type="image" src=${event.target.src} value=${userInput}>
          <input class="fighter" id="${computerChoice}" type="image" src=${computerDisplayChoice.src} value=${computerChoice}>`;
          show(result);
@@ -117,11 +129,19 @@ function offInputs() {
 function restartFighters() {
 
     hide(result);
-
-    classicFighters.innerHTML = `<div class="fighters" id="fightersClassic">
-    <input class="fighter" id="scissors" type="image" src="./assets/black-and-white-scissors.png" value="scissors">
-    <input class="fighter" id="rock" type="image" src="./assets/black-and-white-rocks.png" value="rock">
-    <input class="fighter" id="paper" type="image" src="./assets/black-and-white-paper.png" value="paper">
-    </div>`
+    if (game.fighters.length === 3) {
+        classicFighters.innerHTML = `<div class="fighters" id="fightersClassic">
+        <input class="fighter" id="scissors" type="image" src="./assets/black-and-white-scissors.png" value="scissors">
+        <input class="fighter" id="rock" type="image" src="./assets/black-and-white-rocks.png" value="rock">
+        <input class="fighter" id="paper" type="image" src="./assets/black-and-white-paper.png" value="paper">
+        </div>`
+    } else if (game.fighters.length === 5) {
+        classicFighters.innerHTML = `<div class="fighters" id="fightersClassic">
+        <input class="fighter" id="scissors" type="image" src="./assets/black-and-white-scissors.png" value="scissors">
+        <input class="fighter" id="rock" type="image" src="./assets/black-and-white-rocks.png" value="rock">
+        <input class="fighter" id="paper" type="image" src="./assets/black-and-white-paper.png" value="paper">
+        </div>`;
+        show(spicyFighters);
+    };
 
 };
