@@ -1,6 +1,7 @@
 // DOM Elements
 
 var humanWins = document.getElementById('humanWins');
+var computerWins = document.getElementById('computerWins');
 var choosePrompt = document.getElementById('promptMessage');
 var classicFighters = document.getElementById('fightersClassic');
 var spicyFighters = document.getElementById('fightersSpicy');
@@ -33,6 +34,8 @@ var computerPlayer = new Player('computer');
 
 var game = new Game(humanPlayer, computerPlayer);
 
+displayWins();
+
 // Event Listeners 
 
 classicButton.addEventListener('click', playClassicGame);
@@ -59,6 +62,9 @@ function chooseFighter(event) {
         getComputerElement();
         displayResult();
         game.countdown();
+        humanPlayer.saveWinsToStorage();
+        computerPlayer.saveWinsToStorage();
+        displayWins();
     };
 };
 
@@ -100,10 +106,6 @@ function markSelected(element, className) {
     element.classList.add(className);
 };
 
-function changeImg(element, source) {
-    element.src = source;
-};
-
 function getComputerElement() {
     for(var i =0; i < inputs.length; i++) {
         if(inputs[i].id === computerChoice) {
@@ -118,12 +120,6 @@ function displayResult() {
          <input class="fighter" id="${computerChoice}" type="image" src=${computerDisplayChoice.src} value=${computerChoice}>`;
          show(result);
         result.innerText = resultMessage;
-};
-
-function offInputs() {
-    for (var i = 0; i < inputs.length; i++) {
-        inputs[i].checked = true;
-    };
 };
 
 function restartFighters() {
@@ -143,5 +139,9 @@ function restartFighters() {
         </div>`;
         show(spicyFighters);
     };
+};
 
+function displayWins() {
+    humanWins.innerText = `${humanPlayer.retrieveWinsFromStorage()} Wins`;
+    computerWins.innerText = `${computerPlayer.retrieveWinsFromStorage()} Wins`;
 };
