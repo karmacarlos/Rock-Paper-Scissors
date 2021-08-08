@@ -50,74 +50,6 @@ class Game {
         };
     };
 
-    // play(userInput, computerChoice) {
-        
-    //     if (computerChoice === userInput) {
-    //         resultMessage = '← It\'s a draw →'
-    //         return resultMessage;
-    //     };
-    
-    //     if (computerChoice === 'scissors' && (userInput === 'rock' || userInput === 'alien')) {
-    //         resultMessage = '← You won this round!';
-    //         this.players[0].wins ++;
-    //         localStorage.setItem(`${this.players[0].player}Wins`, this.players[0].wins);
-    //         return resultMessage;
-    //     } else if (computerChoice === 'scissors' && (userInput === 'paper' || userInput === 'lizard')) {
-    //         resultMessage = 'The computer won this round →';
-    //         this.players[1].wins ++;
-    //         localStorage.setItem(`${this.players[1].player}Wins`, this.players[1].wins);
-    //         return resultMessage;
-    //     };
-        
-    //     if (computerChoice === 'rock' && (userInput === 'paper' || userInput === 'alien')) {
-    //         resultMessage = '← You won this round!';
-    //         this.players[0].wins ++;
-    //         localStorage.setItem(`${this.players[0].player}Wins`, this.players[0].wins);
-    //         return resultMessage;
-    //     } else if (computerChoice === 'rock' && (userInput === 'scissors' || userInput === 'lizard')) {
-    //         resultMessage = 'The computer won this round →';
-    //         this.players[1].wins ++;
-    //         localStorage.setItem(`${this.players[1].player}Wins`, this.players[1].wins);
-    //         return resultMessage;
-    //     };
-    
-    //     if (computerChoice === 'paper' && (userInput === 'scissors' || userInput === 'lizard')) {
-    //         resultMessage = '← You won this round!';
-    //         this.players[0].wins ++;
-    //         localStorage.setItem(`${this.players[0].player}Wins`, this.players[0].wins);
-    //         return resultMessage;
-    //     } else if (computerChoice === 'paper' && (userInput === 'rock' || userInput === 'alien')) {
-    //         resultMessage = 'The computer won this round →';
-    //         this.players[1].wins ++;
-    //         localStorage.setItem(`${this.players[1].player}Wins`, this.players[1].wins);
-    //         return resultMessage;
-    //     };
-
-    //     if (computerChoice === 'alien' && (userInput === 'paper' || userInput === 'lizard')) {
-    //         resultMessage = '← You won this round!';
-    //         this.players[0].wins ++;
-    //         localStorage.setItem(`${this.players[0].player}Wins`, this.players[0].wins);
-    //         return resultMessage;
-    //     } else if (computerChoice === 'alien' && (userInput === 'scissors' || userInput === 'rock')) {
-    //         resultMessage = 'The computer won this round →';
-    //         this.players[1].wins ++;
-    //         localStorage.setItem(`${this.players[1].player}Wins`, this.players[1].wins);
-    //         return resultMessage;
-    //     };
-
-    //     if (computerChoice === 'lizard' && (userInput === 'rock' || userInput === 'scissors')) {
-    //         resultMessage = '← You won this round!';
-    //         this.players[0].wins ++;
-    //         localStorage.setItem(`${this.players[0].player}Wins`, this.players[0].wins);
-    //         return resultMessage;
-    //     } else if (computerChoice === 'lizard' && (userInput === 'paper' || userInput === 'alien')) {
-    //         resultMessage = 'The computer won this round →';
-    //         this.players[1].wins ++;
-    //         localStorage.setItem(`${this.players[1].player}Wins`, this.players[1].wins);
-    //         return resultMessage;
-    //     };
-    // };
-
     countdown() {
         var intervalSet = setInterval(timer, 1000);      
         var totalSec = 1;
@@ -133,11 +65,11 @@ class Game {
     }; 
 
     retrieveHumanWins() {
-        return localStorage.getItem(`${this.players[0].player}Wins`);
+        return JSON.parse(localStorage.getItem(`${this.players[0].player}Wins`));
     };
 
     retrieveComputerWins() {
-        return localStorage.getItem(`${this.players[1].player}Wins`);
+        return JSON.parse(localStorage.getItem(`${this.players[1].player}Wins`));
     }; 
 };
 

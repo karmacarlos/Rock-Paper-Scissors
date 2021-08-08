@@ -42,6 +42,7 @@ classicButton.addEventListener('click', playClassicGame);
 centralConsole.addEventListener('click', chooseFighter);
 changeGameButton.addEventListener('click', changeDifficulty);
 spicyButton.addEventListener('click', playSpicyGame);
+// centralConsole.addEventListener('mouseover', changeAppearance);
 
 // Event Handlers
 
@@ -51,6 +52,8 @@ function playClassicGame() {
     hide(difficultyButtonsSection);
     show(changeGameSection);
     game.selectGame('classic');
+    restartFighters();
+    displayWins();
 };
 
 function chooseFighter(event) {
@@ -75,6 +78,7 @@ function changeDifficulty(event) {
     hide(changeGameSection);
     hide(spicyFighters);
     game.resetDifficulty();
+    displayWins();
 };
 
 function playSpicyGame() {
@@ -85,8 +89,30 @@ function playSpicyGame() {
     show(changeGameSection);
     game.selectGame('spicy');
     game.increaseDifficulty();
-}
+    restartFighters();
+    displayWins();
+};
+
+function changeAppearance(event) {
+    if (event.target.id === 'scissors' || event.target.id === 'paper' || event.target.id === 'rock' || event.target.id === 'alien' || event.target.id === 'lizard') {
+        addClass(event.target, 'mouseover-event');
+    } else {
+        for (var i = 0; i < inputs.length; i++) {
+            removeClass(inputs[i], 'mouseover-event');
+            untiltIcons();
+        };
+    };
+};
+
 // Helper Functions
+
+function addClass(element1, newClass) {
+    element1.classList.add(newClass);
+}
+
+function removeClass(element1, newClass) {
+    element1.classList.remove(newClass);
+};
 
 function hide(element) {
     element.classList.add('hidden');
@@ -99,10 +125,6 @@ function show(element) {
 function modifyElementText(element, text) {
     element.innerText = text;
 };
-
-// function markSelected(element, className) {
-//     element.classList.add(className);
-// };
 
 function getComputerElement() {
     for(var i =0; i < inputs.length; i++) {
@@ -123,6 +145,23 @@ function displayResult() {
 function restartFighters() {
 
     hide(result);
+    if (game.fighters.length === 3) {
+        classicFighters.innerHTML = `<div class="fighters" id="fightersClassic">
+        <input class="fighter" id="scissors" type="image" src="./assets/black-and-white-scissors.png" value="scissors">
+        <input class="fighter" id="rock" type="image" src="./assets/black-and-white-rocks.png" value="rock">
+        <input class="fighter" id="paper" type="image" src="./assets/black-and-white-paper.png" value="paper">
+        </div>`
+    } else if (game.fighters.length === 5) {
+        classicFighters.innerHTML = `<div class="fighters" id="fightersClassic">
+        <input class="fighter" id="scissors" type="image" src="./assets/black-and-white-scissors.png" value="scissors">
+        <input class="fighter" id="rock" type="image" src="./assets/black-and-white-rocks.png" value="rock">
+        <input class="fighter" id="paper" type="image" src="./assets/black-and-white-paper.png" value="paper">
+        </div>`;
+        show(spicyFighters);
+    };
+};
+
+function untiltIcons() {
     if (game.fighters.length === 3) {
         classicFighters.innerHTML = `<div class="fighters" id="fightersClassic">
         <input class="fighter" id="scissors" type="image" src="./assets/black-and-white-scissors.png" value="scissors">

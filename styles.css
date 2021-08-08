@@ -133,6 +133,12 @@ button {
     font-size: 4vh;
 }
 
+.mouseover-event {
+    height: 15vh;
+    width: auto;
+    transform: rotate(15deg);
+}
+
 .hidden {
     display: none;
 }
