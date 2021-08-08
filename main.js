@@ -100,9 +100,9 @@ function modifyElementText(element, text) {
     element.innerText = text;
 };
 
-function markSelected(element, className) {
-    element.classList.add(className);
-};
+// function markSelected(element, className) {
+//     element.classList.add(className);
+// };
 
 function getComputerElement() {
     for(var i =0; i < inputs.length; i++) {

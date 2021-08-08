@@ -4,13 +4,13 @@ class Player {
         this.wins = 0;
     };
 
-    saveWinsToStorage() {
-        localStorage.setItem(`${this.player}Wins`, this.wins);
-    };
+    // saveWinsToStorage() {
+    //     localStorage.setItem(`${this.player}Wins`, this.wins);
+    // };
 
-    retrieveWinsFromStorage() {
-        return localStorage.getItem(`${this.player}Wins`);
-    };
+    // retrieveWinsFromStorage() {
+    //     return localStorage.getItem(`${this.player}Wins`);
+    // };
 
     takeTurn(fighters) {
         computerChoice = fighters[Math.floor(Math.random() * fighters.length)];
