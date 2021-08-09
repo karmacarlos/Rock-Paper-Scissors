@@ -1,7 +1,7 @@
 class Player {
     constructor(name) {
         this.player = name;
-        this.wins = 0;
+        this.wins = JSON.parse(localStorage.getItem(`${this.player}Wins`)) || 0;;
     };
 
     takeTurn(fighters) {

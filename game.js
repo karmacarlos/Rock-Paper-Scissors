@@ -2,10 +2,6 @@ class Game {
     constructor(humanInstance, computerInstance) {
         this.players = [humanInstance, computerInstance];
         this.selectedGame = null;
-        this.gameBoard = { 
-            human: humanInstance.wins,
-            computer: computerInstance.wins,
-        };
         this.fighters = ['scissors', 'paper', 'rock'];
         this.rules = {
             rock:['scissors', 'lizard'],
