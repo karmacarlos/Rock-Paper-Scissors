@@ -8,15 +8,10 @@ var spicyFighters = document.getElementById('fightersSpicy');
 var difficultyButtonsSection = document.getElementById('difficultyButtons');
 var classicButton = document.getElementById('classicGame');
 var spicyButton = document.getElementById('spicyGame');
-var startButton = document.getElementById('startButton');
-var fightButton = document.getElementById('fightButton');
 var result = document.getElementById('result');
 var changeGameSection = document.getElementById('changeGameSection');
 var changeGameButton = document.getElementById('changeGame');
 var centralConsole = document.getElementById('centralConsole');
-var scissors = document.getElementById('scissors');
-var paper = document.getElementById('paper');
-var rock = document.getElementById('rock');
 var inputs = document.querySelectorAll('input');
 
 // Variables
@@ -51,6 +46,8 @@ function playClassicGame() {
     hide(difficultyButtonsSection);
     show(changeGameSection);
     game.selectGame('classic');
+    restartFighters();
+    displayWins();
 };
 
 function chooseFighter(event) {
@@ -75,6 +72,7 @@ function changeDifficulty(event) {
     hide(changeGameSection);
     hide(spicyFighters);
     game.resetDifficulty();
+    displayWins();
 };
 
 function playSpicyGame() {
@@ -85,7 +83,10 @@ function playSpicyGame() {
     show(changeGameSection);
     game.selectGame('spicy');
     game.increaseDifficulty();
-}
+    restartFighters();
+    displayWins();
+};
+
 // Helper Functions
 
 function hide(element) {
@@ -100,10 +101,6 @@ function modifyElementText(element, text) {
     element.innerText = text;
 };
 
-function markSelected(element, className) {
-    element.classList.add(className);
-};
-
 function getComputerElement() {
     for(var i =0; i < inputs.length; i++) {
         if(inputs[i].id === computerChoice) {
@@ -114,6 +111,7 @@ function getComputerElement() {
 
 function displayResult() {
         hide(spicyFighters);
+        modifyElementText(choosePrompt, 'BATTLE');
         classicFighters.innerHTML = `<input class="fighter" id="${userInput}" type="image" src=${event.target.src} value=${userInput}>
          <input class="fighter" id="${computerChoice}" type="image" src=${computerDisplayChoice.src} value=${computerChoice}>`;
          show(result);
@@ -121,7 +119,7 @@ function displayResult() {
 };
 
 function restartFighters() {
-
+    modifyElementText(choosePrompt, 'Choose your Fighter')
     hide(result);
     if (game.fighters.length === 3) {
         classicFighters.innerHTML = `<div class="fighters" id="fightersClassic">

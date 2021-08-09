@@ -1,18 +1,9 @@
 
-/* COLORS:
-Main Red #FE5146
-MainBlue #01ADCC
-Other Red #E40611
-Cool White #DDDEDF
-Cool Black #29282D
-Black Font #494849
-Cool Orange #EC9F1A
-Other Blue #00C3E1
-Foggy Grey #767D81 */
 
 html {
     font-family: 'Josefin Sans', sans-serif;
     background-color: #29282D;
+    size: auto;
 }
 
 header {
@@ -24,14 +15,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 90vh;
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    height: 95vh;
+    width: 95vw;
 }
 
 h2 {
@@ -45,7 +37,7 @@ h2 {
     align-items: center;
     background-color: #29282D;
     border-radius: 2vh;
-    height: 90vh;
+    height: 80vh;
     width: 90vw;
 }
 
@@ -107,6 +99,12 @@ h2 {
     width: auto;
     cursor: pointer;
     border-radius: 1vh;
+}
+
+.fighter:hover {
+    height: 15vh;
+    width: auto;
+    transform: rotate(15deg);
 }
 
 .selected {
